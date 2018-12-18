@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   
+<h1>Contacts</h1>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for contact in object_list %}
+<tr>
+<td>{{ contact.name }}</td>
+<td>{{ contact.email }}</td>
+<td>{{ contact.address }}</td>
+<td> {{ contact.phone }}</td>
+<td>
+<a  href="{% url "contact_detail"  contact.id  %}">details</a>
+<a  href="{% url "contact_edit"  contact.id  %}">edit</a>
+<a  href="{% url "contact_delete"  contact.id  %}">delete</a>
+
+</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+
+
+<p></p> <a href = "{% url 'contact_create' %}"> Create</a> </p>
+</body>
+</html>
